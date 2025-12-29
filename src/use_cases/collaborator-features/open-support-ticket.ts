@@ -1,5 +1,5 @@
-import { insertQuerie } from "../db/queries/insert-querie";
-import { Domain_Ticket_Data } from "../domain/ApplicationDomainLayer";
+import { insertQuerie } from "../../db/queries/insert-querie";
+import { Domain_Ticket_Data } from "../../domain/ApplicationDomainLayer";
 
 import { FastifyInstance } from "fastify";
 import { z } from 'zod'

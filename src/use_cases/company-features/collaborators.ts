@@ -1,4 +1,4 @@
-import { findQuerie } from "../db/queries/find-querie"
+import { findQuerie } from "../../db/queries/find-querie"
 
 import { z } from 'zod'
 import { FastifyInstance } from 'fastify'

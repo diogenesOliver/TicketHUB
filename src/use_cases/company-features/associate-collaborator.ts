@@ -1,5 +1,5 @@
-import { Domain_Collaborator_Data } from "../domain/ApplicationDomainLayer"
-import { insertQuerie } from "../db/queries/insert-querie"
+import { Domain_Collaborator_Data } from "../../domain/ApplicationDomainLayer"
+import { insertQuerie } from "../../db/queries/insert-querie"
 
 import { FastifyInstance } from "fastify"
 import { z } from "zod"

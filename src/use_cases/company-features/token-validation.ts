@@ -1,5 +1,5 @@
-import { findCoorporateTokenFromValidationFeature } from "../db/queries/find-querie"
-import { updateQuerie } from "../db/queries/update-querie"
+import { findCoorporateTokenFromValidationFeature } from "../../db/queries/find-querie"
+import { updateQuerie } from "../../db/queries/update-querie"
 
 import { FastifyInstance } from "fastify"
 

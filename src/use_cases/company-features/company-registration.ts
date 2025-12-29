@@ -1,11 +1,11 @@
 import { config } from "dotenv";
 config()
 
-import { Domain_Company_Data } from "../domain/ApplicationDomainLayer"
-import { insertQuerie } from "../db/queries/insert-querie";
-import { updateQuerie } from "../db/queries/update-querie";
-import { KafkaInstance } from "../lib/kafka";
-import { generateTokenConsumer, token } from "../consumer/kafka_consumer/generate_token_consumer";
+import { Domain_Company_Data } from "../../domain/ApplicationDomainLayer"
+import { insertQuerie } from "../../db/queries/insert-querie";
+import { updateQuerie } from "../../db/queries/update-querie";
+import { KafkaInstance } from "../../lib/kafka";
+import { generateTokenConsumer, token } from "../../consumer/kafka_consumer/generate_token_consumer";
 
 import { FastifyInstance } from "fastify";
 import { z } from "zod"
