@@ -20,11 +20,7 @@ export async function companyRegistration(app: FastifyInstance){
             await producer.connect()
 
             const registrationCoorporate = await insertQuerie("company", companyData)
-            console.log(registrationCoorporate)
 
-            //@ts-ignore
-            const uuid = JSON.stringify(registrationCoorporate?.id)
-            
             const jwtToken = token()
             //@ts-ignore
             await updateQuerie("company", registrationCoorporate?.id, "corporate_token", jwtToken)
