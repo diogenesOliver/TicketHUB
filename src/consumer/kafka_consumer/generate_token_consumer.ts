@@ -11,7 +11,7 @@ export async function generateTokenConsumer(){
         const TOKEN: string = token()
         
         await consumer.connect()
-        await consumer.subscribe({ topic: "topic-test", fromBeginning: true })
+        await consumer.subscribe({ topic: "registration-event", fromBeginning: true })
 
         await consumer.run({
             eachMessage: async ({ topic, partition, message, heartbeat }) => {

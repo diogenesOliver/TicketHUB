@@ -37,7 +37,7 @@ export async function companyRegistration(app: FastifyInstance){
             }
 
             await producer.send({
-                topic: "topic-test",
+                topic: "registration-event",
                 messages: [
                     {
                         value: JSON.stringify(companyData.corporate_email as string)
