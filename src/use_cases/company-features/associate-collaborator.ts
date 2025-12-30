@@ -16,9 +16,9 @@ export async function associatedCollaborator(app: FastifyInstance){
             
             const querie = await insertQuerie("collaborator", collaboratorData, "company", id)
             if(querie == undefined){
-                reply.status(500).send({
+                reply.status(404).send({
                     error: "Collaborator email already registered!",
-                    statusCode: 500
+                    statusCode: 404
                 })
             
                 return
