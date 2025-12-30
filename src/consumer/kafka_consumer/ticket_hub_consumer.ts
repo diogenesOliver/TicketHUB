@@ -9,15 +9,16 @@ export async function ticketHubConsumer(){
 
         await consumer.run({
             eachMessage: async ({ topic, partition, message, heartbeat }) => {
-                const convertBufferMessageToString = message.value?.toString('utf-8') as string
+                const convertBufferMessageToString: string | undefined = message.value?.toString('utf-8')
+                if (convertBufferMessageToString == undefined)
+                    return
+
                 const convertStringMessageToJson = JSON.parse( convertBufferMessageToString )
+                console.log( convertStringMessageToJson )
 
                 /* 
                     Aplicar lógica para enviar para todos os colaboradores do time de T.I
                 */
-
-                console.log( convertStringMessageToJson )
-
                 await heartbeat() 
             }
         })
