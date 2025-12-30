@@ -1,5 +1,7 @@
 import { insertQuerie } from "../../db/queries/insert-querie";
 import { Domain_Ticket_Data } from "../../domain/ApplicationDomainLayer";
+import { KafkaInstance } from "../../lib/kafka";
+import { ticketHubConsumer } from "../../consumer/kafka_consumer/ticket_hub_consumer";
 
 import { FastifyInstance } from "fastify";
 import { z } from 'zod'
@@ -7,6 +9,9 @@ import { z } from 'zod'
 export async function openSupportTicket(app: FastifyInstance) {
     app.post('/open/ticket/:id/v1', async (request, reply) => {
         try{
+            const producer = KafkaInstance.producer()
+            await producer.connect()
+
             const ticketDataValidation = z.object(Domain_Ticket_Data)
             const ticketData = ticketDataValidation.parse(request.body)
 
@@ -22,6 +27,18 @@ export async function openSupportTicket(app: FastifyInstance) {
 
                 return
             }
+
+            await producer.send({
+                topic: "ticket-hub",
+                messages: [
+                    {
+                        value: JSON.stringify(ticketData)
+                    }
+                ]
+            })
+
+            await producer.disconnect()
+            ticketHubConsumer()
 
             reply.status(201).send({
                 message: "[INFO] - Ticket created successfully",
