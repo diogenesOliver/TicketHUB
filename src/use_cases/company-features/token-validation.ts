@@ -7,7 +7,6 @@ export const companyTokenValidation = async (app: FastifyInstance) => {
     app.post('/token/validation', async (request, reply) => {
         try{
             const tokenRequired = request.body
-            
             // @ts-ignore
             const findToken = await findCoorporateTokenFromValidationFeature("company", tokenRequired?.token)
             
