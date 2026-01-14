@@ -4,6 +4,7 @@ import { insertQuerie } from "../../db/queries/insert-querie"
 import { FastifyInstance } from "fastify"
 import { z } from "zod"
 
+/* company id on url */
 export async function associatedCollaborator(app: FastifyInstance){
     app.post("/associate/collaborator/:id/v1", async (request, reply) => {
         try{

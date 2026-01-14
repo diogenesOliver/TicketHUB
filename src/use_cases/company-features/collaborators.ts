@@ -3,6 +3,7 @@ import { findQuerie } from "../../db/queries/find-querie"
 import { z } from 'zod'
 import { FastifyInstance } from 'fastify'
 
+/* company id on url */
 export const colaborators = async (app: FastifyInstance) => {
     app.get('/company/tickets/:id/v1', async (request, reply) => {
         try{

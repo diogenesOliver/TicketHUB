@@ -6,6 +6,7 @@ import { ticketHubConsumer } from "../../consumer/kafka_consumer/ticket_hub_cons
 import { FastifyInstance } from "fastify";
 import { z } from 'zod'
 
+/* colaborator id on url */
 export async function openSupportTicket(app: FastifyInstance) {
     app.post('/open/ticket/:id/v1', async (request, reply) => {
         try{
