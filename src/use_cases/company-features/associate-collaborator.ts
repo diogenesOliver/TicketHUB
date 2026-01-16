@@ -16,6 +16,11 @@ export async function associatedCollaborator(app: FastifyInstance){
             const { id } = paramsValidation.parse(request.params)
             
             const querie = await insertQuerie("collaborator", collaboratorData, "company", id)
+            
+            /* 
+                Criar a lógica para atribuir um token de validação ao colaborador
+            */
+
             if(querie == undefined){
                 reply.status(404).send({
                     error: "Collaborator email already registered!",
